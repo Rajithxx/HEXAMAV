@@ -80,7 +80,60 @@
 ![Screenshot 2025-03-17 194945](https://github.com/user-attachments/assets/1fa350a9-9d57-476a-ab3c-cd59ee4a17a3)
 
 
+1. Retrieve Orders with Customer Information
+
 
 ![Screenshot 2025-03-17 195704](https://github.com/user-attachments/assets/c2c605ff-b378-46bc-903c-74447c1c7e08)
+
+2. Find Total Revenue by Product
+
+
+![image](https://github.com/user-attachments/assets/33d4276e-c782-4402-a9f2-fee488ab6789)
+
+
+3. List Customers Who Have Made at Least One Purchase
+
+![image](https://github.com/user-attachments/assets/cab491b9-d946-4114-bd4a-9e0b615287bb)
+
+
+4. Find the Most Popular Product (Highest Quantity Ordered)
+
+
+![image](https://github.com/user-attachments/assets/8f872fdc-9e95-48d4-aec9-268ad721d2ba)
+
+
+
+5. List All Products
+
+
+
+![image](https://github.com/user-attachments/assets/9e209884-b85d-4f04-a191-e57dfa1b8a17)
+
+
+
+6. Calculate the Average Order Value Per Customer
+
+
+![image](https://github.com/user-attachments/assets/d72c86bc-ced4-48ed-b303-714b21775671)
+
+
+7. Find the Order with the Highest Total Revenue
+
+![image](https://github.com/user-attachments/assets/7527308f-e9da-4cc6-b076-9ead92d1d3f6)
+
+
+8. List Products with the Number of Times Each Was Ordered
+   
+
+   ![image](https://github.com/user-attachments/assets/732b2ba9-fb2a-46cf-9fdd-dc840dca52dc)
+
+
+9.Find Customers Who Bought a Specific Product
+
+![image](https://github.com/user-attachments/assets/fd9cea76-663e-45b1-a8e4-adc5d671f570)
+
+
+
+10.Calculate Total Revenue for Orders Within a Specific Time Period
 
 
