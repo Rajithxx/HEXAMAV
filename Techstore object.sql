@@ -138,3 +138,98 @@ DECLARE @CustomerID INT = 2;
 UPDATE Techshopstr.Customers
 SET Email = 'newemail@example.com', Address = 'Updated Address'
 WHERE CustomerID = @CustomerID;
+
+
+SELECT * FROM Techshopstr.OrderDetails;
+SELECT * FROM Techshopstr.Orders;
+
+SELECT SUM(ISNULL(o.TotalAmount, 0)) AS TotalRevenue
+FROM Techshopstr.Orders o;
+
+SELECT SUM(o.TotalAmount) AS TotalRevenue
+FROM Techshopstr.Orders o;
+
+SELECT o.OrderID, c.CustomerID, o.TotalAmount
+FROM Techshopstr.Orders o
+LEFT JOIN Techshopstr.Customers c
+ON o.CustomerID = c.CustomerID
+WHERE o.TotalAmount IS NULL;
+
+JOIN Techshopstr.Customers c ON o.customerId = c.customerId;
+
+SELECT * FROM Techshopstr.Orders WHERE TotalAmount IS NULL;
+
+SELECT i.InventoryID, p.ProductName, i.QuantityInStock
+FROM Techshopstr.Inventory i
+JOIN Techshopstr.Products p
+ON i.ProductId = p.ProductId
+WHERE i.QuantityInStock < 50;
+
+
+UPDATE Techshopstr.Inventory
+SET QuantityInStock = 100,
+LastStockUpdate = GETDATE()
+WHERE QuantityInStock < 50;
+SELECT * FROM Techshopstr.Inventory
+
+INSERT INTO Techshopstr.Products (ProductName, Description, Price)
+VALUES
+('Wireless Mouse', 'Bluetooth Mouse with long battery life', 750.00),
+('Gaming Keyboard', 'RGB Mechanical Keyboard', 1500.00);
+
+SELECT * FROM Techshopstr.Products
+
+INSERT INTO Techshopstr.Inventory (ProductId, QuantityInStock, LastStockUpdate)
+VALUES
+(11, 80, GETDATE()), 
+(12, 60, GETDATE());
+
+INSERT INTO Techshopstr.Products (ProductName, Description, Price)
+VALUES
+('Battery', 'long battery life', 750.00),
+('Home theatre', 'BASSSS', 1500.00);
+
+
+INSERT INTO Techshopstr.Inventory (ProductId, QuantityInStock, LastStockUpdate)
+VALUES
+(14, 0, GETDATE()),
+(15, 0, GETDATE()); 
+
+SELECT * FROM Techshopstr.Inventory
+SELECT * FROM Techshopstr.Products
+DELETE FROM Techshopstr.Inventory
+WHERE QuantityInStock = 0;
+
+SELECT SUM(QuantityInStock) AS TotalQuantity
+FROM Techshopstr.Inventory;
+
+SELECT AVG(QuantityInStock) AS AverageStock
+FROM Techshopstr.Inventory;
+
+
+
+SELECT TOP 1 p.ProductName, i.QuantityInStock
+FROM Techshopstr.Inventory i
+JOIN Techshopstr.Products p
+ON i.ProductId = p.ProductId
+ORDER BY i.QuantityInStock DESC;
+
+
+SELECT p.ProductName, i.QuantityInStock, i.LastStockUpdate
+FROM Techshopstr.Inventory i
+JOIN Techshopstr.Products p
+ON i.ProductId = p.ProductId
+WHERE i.LastStockUpdate >= DATEADD(DAY, -7, GETDATE());
+
+
+UPDATE Techshopstr.Inventory
+SET QuantityInStock = 50,
+    LastStockUpdate = GETDATE()
+WHERE ProductId IN (1, 3, 5); 
+
+
+SELECT i.InventoryID, p.ProductName, i.QuantityInStock, i.LastStockUpdate
+FROM Techshopstr.Inventory i
+JOIN Techshopstr.Products p
+ON i.ProductId = p.ProductId
+WHERE p.ProductName = 'Wireless Mouse';
