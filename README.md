@@ -142,4 +142,57 @@ Task 3
 
 10.Calculate Total Revenue for Orders Within a Specific Time Period
 
+![image](https://github.com/user-attachments/assets/f64477ea-aaae-4768-a5f9-fd13a8de0ad6)
 
+
+Task 4
+1.Identify Low Stock Products
+
+![image](https://github.com/user-attachments/assets/4f1449fe-07b2-4f4a-8bf8-357e0a6b0e5e)
+
+
+2. Update Low Stock Products to 100
+![image](https://github.com/user-attachments/assets/fe65e435-057e-4862-9ac7-fa198e804c3f)
+
+
+3. Add New Products to Inventory
+   ![image](https://github.com/user-attachments/assets/eafebd9d-fb4b-4353-a09c-026ccee5a45c)
+
+
+![image](https://github.com/user-attachments/assets/ed6e4c11-9f02-4df3-baec-61d959d218cd)
+
+
+4. Remove Discontinued Products from Inventory
+  
+![image](https://github.com/user-attachments/assets/3e44ef3b-347f-445b-8259-cea97ea8047f)
+
+![image](https://github.com/user-attachments/assets/ae1a449b-c6cd-4a9d-bdd6-af265af006cf)
+
+
+5. Check Total Quantity in Inventory
+![image](https://github.com/user-attachments/assets/0035be70-c985-4445-875e-f202d11e0765)
+
+
+6. Check Average Stock Level Per Product
+
+![image](https://github.com/user-attachments/assets/f4370f1d-77a0-459c-9405-28d60a25fe59)
+
+
+7. Find Product with Maximum Stock
+
+![image](https://github.com/user-attachments/assets/b2b9f7d0-70d5-4254-ab50-3dc926dab429)
+
+
+8. List Products Updated in the Last 7 Days
+
+![image](https://github.com/user-attachments/assets/523908d8-d94e-482b-964f-94cbba520613)
+
+
+9. Reset Stock of Selected Products
+
+![image](https://github.com/user-attachments/assets/19e0ea29-f112-41f1-bdd0-808e08f73ba8)
+
+
+10. Check Stock of a Specific Product by Name
+
+![image](https://github.com/user-attachments/assets/eab748a8-92ac-45f8-9acb-6c2a203858b6)
