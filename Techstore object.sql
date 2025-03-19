@@ -1,4 +1,4 @@
-```
+
 --For organized data
 
 CREATE SCHEMA Techshopstr;
@@ -133,4 +133,8 @@ ALTER TABLE Techshopstr.customers ADD TotalOrders INT DEFAULT 0;
 UPDATE Techshopstr.customers
 SET TotalOrders = (SELECT COUNT(*) FROM Techshopstr.Orders WHERE Techshopstr.Orders.customerId = Techshopstr.customers.customerId);
 
-```
+DECLARE @CustomerID INT = 2;
+
+UPDATE Techshopstr.Customers
+SET Email = 'newemail@example.com', Address = 'Updated Address'
+WHERE CustomerID = @CustomerID;
