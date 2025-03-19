@@ -1,4 +1,7 @@
 # HEXAMAV
+TASK 1
+![image](https://github.com/user-attachments/assets/2df7508f-cd83-4e99-9a78-13ef42948f53)
+
 
 TASK 2
 
