@@ -233,3 +233,197 @@ FROM Techshopstr.Inventory i
 JOIN Techshopstr.Products p
 ON i.ProductId = p.ProductId
 WHERE p.ProductName = 'Wireless Mouse';
+
+
+
+
+
+SELECT 
+    C.FirstName,
+    C.LastName
+FROM 
+    Techshopstr.Customers C
+WHERE 
+    C.CustomerID NOT IN (
+        SELECT O.CustomerID
+        FROM Techshopstr.Orders O
+    );
+
+
+
+SELECT 
+    COUNT(ProductID) AS TotalProducts
+FROM 
+    Techshopstr.Products;
+
+SELECT 
+    SUM(OD.Quantity * P.Price) AS TotalRevenue
+FROM 
+    Techshopstr.OrderDetails OD
+JOIN 
+    Techshopstr.Products P ON OD.ProductID = P.ProductID;
+
+
+
+
+CREATE TABLE Techshopstr.Categories (
+    CategoryID INT PRIMARY KEY,
+    CategoryName NVARCHAR(100) NOT NULL
+);
+
+
+INSERT INTO Techshopstr.Categories (CategoryID, CategoryName)
+VALUES
+(1, 'Gaming'),
+(2, 'Electronics'),
+(3, 'Accessories'),
+(4, 'Audio'),
+(5, 'Office');
+
+
+ALTER TABLE Techshopstr.Products
+ADD CategoryID INT;
+
+-- Update existing product data with valid CategoryID
+UPDATE Techshopstr.Products
+SET CategoryID = 1 WHERE ProductName = 'Gaming Mouse';
+UPDATE Techshopstr.Products
+SET CategoryID = 3 WHERE ProductName = 'Wireless Headphones';
+UPDATE Techshopstr.Products
+SET CategoryID = 2 WHERE ProductName = 'Smartwatch';
+UPDATE Techshopstr.Products
+SET CategoryID = 2 WHERE ProductName = 'Tablet';
+UPDATE Techshopstr.Products
+SET CategoryID = 3 WHERE ProductName = 'External SSD';
+UPDATE Techshopstr.Products
+SET CategoryID = 3 WHERE ProductName = 'Mechanical Keyboard';
+UPDATE Techshopstr.Products
+SET CategoryID = 4 WHERE ProductName = 'Portable Speaker';
+UPDATE Techshopstr.Products
+SET CategoryID = 5 WHERE ProductName = 'Printer';
+UPDATE Techshopstr.Products
+SET CategoryID = 5 WHERE ProductName = 'Router';
+UPDATE Techshopstr.Products
+SET CategoryID = 4 WHERE ProductName = 'Webcam';
+
+
+ALTER TABLE Techshopstr.Products
+ADD CONSTRAINT FK_Category
+FOREIGN KEY (CategoryID) REFERENCES Techshopstr.Categories(CategoryID);
+
+
+
+
+DECLARE @CategoryName NVARCHAR(100) = 'Gaming';
+
+SELECT 
+    AVG(OD.Quantity) AS AverageQuantity
+FROM 
+    Techshopstr.OrderDetails OD
+JOIN 
+    Techshopstr.Products P ON OD.ProductID = P.ProductID
+JOIN 
+    Techshopstr.Categories C ON P.CategoryID = C.CategoryID
+WHERE 
+    C.CategoryName = @CategoryName;
+
+
+
+DECLARE @CustomerID INT = 1;
+
+SELECT 
+    SUM(OD.Quantity * P.Price) AS CustomerRevenue
+FROM 
+    Techshopstr.Orders O
+JOIN 
+    Techshopstr.OrderDetails OD ON O.OrderID = OD.OrderID
+JOIN 
+    Techshopstr.Products P ON OD.ProductID = P.ProductID
+WHERE 
+    O.CustomerID = @CustomerID;
+
+
+SELECT 
+    C.FirstName,
+    C.LastName,
+    COUNT(O.OrderID) AS TotalOrders
+FROM 
+    Techshopstr.Customers C
+JOIN 
+    Techshopstr.Orders O ON C.CustomerID = O.CustomerID
+GROUP BY 
+    C.FirstName, C.LastName
+HAVING 
+    COUNT(O.OrderID) = (
+        SELECT MAX(OrderCount)
+        FROM (
+            SELECT 
+                CustomerID, 
+                COUNT(OrderID) AS OrderCount
+            FROM 
+                Techshopstr.Orders
+            GROUP BY 
+                CustomerID
+        ) AS CustomerOrders
+    );
+
+
+
+
+SELECT 
+    TOP 1 C.CategoryName,
+    SUM(OD.Quantity) AS TotalQuantity
+FROM 
+    Techshopstr.OrderDetails OD
+JOIN 
+    Techshopstr.Products P ON OD.ProductID = P.ProductID
+JOIN 
+    Techshopstr.Categories C ON P.CategoryID = C.CategoryID
+GROUP BY 
+    C.CategoryName
+ORDER BY 
+    TotalQuantity DESC;
+
+
+SELECT 
+    TOP 1 C.FirstName,
+    C.LastName,
+    SUM(OD.Quantity * P.Price) AS TotalSpent
+FROM 
+    Techshopstr.Customers C
+JOIN 
+    Techshopstr.Orders O ON C.CustomerID = O.CustomerID
+JOIN 
+    Techshopstr.OrderDetails OD ON O.OrderID = OD.OrderID
+JOIN 
+    Techshopstr.Products P ON OD.ProductID = P.ProductID
+GROUP BY 
+    C.FirstName, C.LastName
+ORDER BY 
+    TotalSpent DESC;
+
+
+
+
+SELECT 
+    ROUND(SUM(OD.Quantity * P.Price) / COUNT(DISTINCT O.OrderID), 2) AS AverageOrderValue
+FROM 
+    Techshopstr.Orders O
+JOIN 
+    Techshopstr.OrderDetails OD ON O.OrderID = OD.OrderID
+JOIN 
+    Techshopstr.Products P ON OD.ProductID = P.ProductID;
+
+
+
+
+SELECT 
+    C.FirstName,
+    C.LastName,
+    COUNT(O.OrderID) AS TotalOrders
+FROM 
+    Techshopstr.Customers C
+LEFT JOIN 
+    Techshopstr.Orders O ON C.CustomerID = O.CustomerID
+GROUP BY 
+    C.FirstName, C.LastName;
