@@ -1,5 +1,8 @@
 TASK 1:
 
+![image](https://github.com/user-attachments/assets/cf5bec09-da64-4bbb-836c-96cf663c8959)
+
+
 ![image](https://github.com/user-attachments/assets/0c3596d9-0469-47b7-b624-16d295ea7741)
 
 ![image](https://github.com/user-attachments/assets/5aefa496-fdb8-492c-ae80-507e1faba3af)
